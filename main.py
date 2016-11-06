@@ -1,12 +1,18 @@
 #!/usr/bin/env python
 
 from lib.utils import Common
-
-c = Common()
-c.create_parser()
+import lib
+import sys
+import os
+import lib.mysql.common as mysql
 
 
 def main():
+    xx = mysql.init()
+    e = xx.shell.Executor("ls -l")
+    print e
+    if not os.path.exists(lib.c.args.path):
+        raise Exception(lib.c.args.path+" is not existed.")
     return 0
 
 
